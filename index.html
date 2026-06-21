@@ -1,4 +1,4 @@
-<!doctype html>
+p<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
@@ -23,8 +23,16 @@
              words[i].classList.remove("is-hidden"); 
           } else {
             words[i].classList.add("is-hidden");
+          }
         }
-      }
+        let typingTimer;
+        let typeInterval = 500;
+        let searchInput = document.getElementById("search");
+        
+        searchInput.addEventListener("keyup", () => {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(liveSearch, typeInterval);
+        });
     </script>
   </head>
   <body>
@@ -32,7 +40,7 @@
     <search>
       <label for="search">
         Search
-        <input type="search" id="search" placeholder="Word in the a dictionary..." oninput="liveSearch()"/>
+        <input type="search" id="search" placeholder="Word in the a dictionary..."/>
       </label>
     </search>
     <ol>
