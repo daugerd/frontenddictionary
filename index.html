@@ -8,14 +8,31 @@
       li {
         font-family: sans-serif;
       }
+      
+      .is-hidden {
+        display: none;
+      }
     </style>
+    <script>
+      function liveSearch() {
+        let words = document.querySelectorAll("li");
+        let searchQuery = document.getElementById("search").value;
+        
+        for (let i = 0; i < words.length; i++) {
+          if(words[i].innerText.toLowerCase().includes(searchQuery.toLowerCase()) {
+             words[i].classList.remove("is-hidden"); 
+          } else {
+            words[i].classList.add("is-hidden");
+        }
+      }
+    </script>
   </head>
   <body>
     <h1>Frontend Dictionary</h1>
     <search>
       <label for="search">
         Search
-        <input type="search" id="search" placeholder="Word the a dictionary..."/>
+        <input type="search" id="search" placeholder="Word the a dictionary..." oninput="liveSearch()"/>
       </label>
     </search>
     <ol>
