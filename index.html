@@ -13,28 +13,6 @@
         display: none;
       }
     </style>
-    <script>
-      function liveSearch() {
-        let words = document.querySelectorAll("li");
-        let searchQuery = document.getElementById("search").value;
-        
-        for (let i = 0; i < words.length; i++) {
-          if(words[i].innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
-             words[i].classList.remove("is-hidden"); 
-          } else {
-            words[i].classList.add("is-hidden");
-          }
-        }
-        let typingTimer;
-        let typeInterval = 500;
-        let searchInput = document.getElementById("search");
-        
-        searchInput.addEventListener("keyup", () => {
-        clearTimeout(typingTimer);
-        typingTimer = setTimeout(liveSearch, typeInterval);
-        });
-      }
-    </script>
   </head>
   <body>
     <h1>Frontend Dictionary</h1>
@@ -61,5 +39,27 @@
       <li>rel - link element attribute that stands for relationship, and is one of the key features of link element, rel value denotes how the item being linked to is related to the containing document. Could be also used to indicate icon types. </li>
       <li>Symbolic link - special computer file that refers to another file or directory by storing a path to it (also symlink or soft link)</li>
     </ol>
+  <script>
+        let words = document.querySelectorAll("li");
+
+        function liveSearch() {
+            let searchQuery = document.getElementById("search").value;
+            for (let i = 0; i < words.length; i++) {
+            if(words[i].innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
+                words[i].classList.remove("is-hidden"); 
+            } else {
+                words[i].classList.add("is-hidden");
+            }
+            }
+        }
+
+        let typingTimer;
+        let typeInterval = 300;
+        let searchInput = document.getElementById("search");
+        searchInput.addEventListener("keyup", () => {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(liveSearch, typeInterval);
+        });
+    </script>
   </body>
 </html>
