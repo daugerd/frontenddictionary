@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Frontend Dictionary</title>
     <style>
-      body, h1 {
+      body, h1, h2, h3, h4, h5, h6 {
         font-family: sans-serif;
         font-weight: 300;
       }
@@ -48,8 +48,26 @@
         margin-left: 0.5rem;
       }
 
+      ol {
+        line-height: 1.2;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
       .is-hidden {
         display: none;
+      }
+
+      .term {
+        display: inline-block;
+        border: 1px solid #f5f5f5;
+        padding: 0.2rem 0.5rem;
+        border-radius: 1rem;
+      }
+
+      .term-element {
+        border-color: #0077ff;
       }
 
       #logo {
@@ -77,24 +95,28 @@
         <input type="search" id="search" placeholder="Search for a word..."/>
       </label>
     </search>
-    <ol>
-      <li>Block-level - content that participates in block-level content (in CSS).</li>
-      <li>Global attributes - attributes that are common to all HTML elements. they can be used on all elements, though they may have no effect on some elements.</li>
-      <li>Cascading Style Sheets (CSS) - a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML).</li>
-      <li>JavaScript (JS) - a lightweight interpreted (or just-in-time compiled) programming language with first-class functions.</li>
-      <li>Internet -  a worldwide network of networks that uses the Internet protocol suite (also named TCP/IP from its two most important protocols). https://developer.mozilla.org/en-US/docs/Glossary/Internet</li>
-      <li>h1 to h6 - elements that represent six levels of section headings. By default, all heading elements create a block-level box in the layout.</li>
-      <li>Hypertext - link that connect web pages to one another, either within a single website or between websites.</li>
-      <li>HyperText Markup Language (HTML) - formatting language for displaying content over Internet. https://www.britannica.com/technology/HTML </li>
-      <li>Label - element that represents caption for an item in a user interface.</li>
-      <li>Legend - element that represents a caption for the content of its parent fieldset or a group of related form controls.</li>
-      <li>link - HTML element that specifies relationships between the current document and an external resource. Most commonly used to link stylesheets, but is also used to establish site icons (both favicon style icons and icons for th home screen and apps on mobile device) among other things.</li>
-      <li>media - attribute of link that specifies media type or allow to add query inside, This resource will then only be loaded if the media condition is true.</li>
-      <li>preload - link attribute which indicates that the browser should preload this resource, together with as attribute indicating the specific class of content being fetched (new performance and security enhancement)</li>
-      <li>Placeholder - attribute that defines the text displayed in a form control when the control has no value. Effective placeholder text includes a word or short phrase that hints at the expected data type, not an explanation or prompt. This attribute is supported by the following input types: text, search, url, tel, email, and password and by textarea element. </li>
-      <li>rel - link element attribute that stands for relationship, and is one of the key features of link element, rel value denotes how the item being linked to is related to the containing document. Could be also used to indicate icon types. </li>
-      <li>Symbolic link - special computer file that refers to another file or directory by storing a path to it (also symlink or soft link)</li>
-    </ol>
+    <section>
+      <h2>Words</h2>
+      <ol>
+        <li><div class="term">Block-level</div> - content that participates in block-level content (in CSS).</li>
+        <li><div class="term">Global attributes</div> - attributes that are common to all HTML elements. they can be used on all elements, though they may have no effect on some elements.</li>
+        <li><div class="term">Cascading Style Sheets (CSS)</div> - a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML).</li>
+        <li><div class="term">JavaScript (JS)</div> - a lightweight interpreted (or just-in-time compiled) programming language with first-class functions.</li>
+        <li><div class="term">Internet</div> -  a worldwide network of networks that uses the Internet protocol suite (also named TCP/IP from its two most important protocols). https://developer.mozilla.org/en-US/docs/Glossary/Internet</li>
+        <li><div class="term term-element">h1 to h6</div> - elements that represent six levels of section headings. By default, all heading elements create a block-level box in the layout.</li>
+        <li><div class="term">head</div> - element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets. There can be only one head element in an HTML document.</li>
+        <li><div class="term">Hypertext</div> - link that connect web pages to one another, either within a single website or between websites.</li>
+        <li><div class="term">HyperText Markup Language (HTML)</div> - formatting language for displaying content over Internet. https://www.britannica.com/technology/HTML </li>
+        <li><div class="term term-element">label</div> - element that represents caption for an item in a user interface.</li>
+        <li><div class="term term-element">legend</div> - element that represents a caption for the content of its parent fieldset or a group of related form controls.</li>
+        <li><div class="term term-element">link</div> - HTML element that specifies relationships between the current document and an external resource. Most commonly used to link stylesheets, but is also used to establish site icons (both favicon style icons and icons for th home screen and apps on mobile device) among other things.</li>
+        <li><div class="term">media</div> - attribute of link that specifies media type or allow to add query inside, This resource will then only be loaded if the media condition is true.</li>
+        <li><div class="term">preload</div> - link attribute which indicates that the browser should preload this resource, together with as attribute indicating the specific class of content being fetched (new performance and security enhancement)</li>
+        <li><div class="term">Placeholder</div> - attribute that defines the text displayed in a form control when the control has no value. Effective placeholder text includes a word or short phrase that hints at the expected data type, not an explanation or prompt. This attribute is supported by the following input types: text, search, url, tel, email, and password and by textarea element. </li>
+        <li><div class="term">rel</div> - link element attribute that stands for relationship, and is one of the key features of link element, rel value denotes how the item being linked to is related to the containing document. Could be also used to indicate icon types. </li>
+        <li><div class="term">Symbolic link</div> - special computer file that refers to another file or directory by storing a path to it (also symlink or soft link)</li>
+      </ol>
+    </section>
   <script>
         let words = document.querySelectorAll("li");
 
