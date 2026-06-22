@@ -75,6 +75,18 @@
         color: white;
       }
 
+      .dashboard-tile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .dashboard-text {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
       #logo {
         width: 100px;
         height: 100px;
@@ -87,6 +99,36 @@
         font-size: 2rem;
         letter-spacing: 0.2rem;
       }
+
+      .blob {
+        background: black;
+        border-radius: 50%;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+        height: 20px;
+        width: 20px;
+        transform: scale(1);
+        animation: pulse 2s infinite; 
+        color: white;
+        text-align: center;     
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+        }
+        
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+        
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -94,6 +136,12 @@
     <div id="logo">FD</div>
     <h1><strong>Frontend</strong><br>Dictionary</h1>
     </header>
+    <section id="dashboard">
+      <div class="dashboard-tile">
+        <p class="dashboard-text"><span id="word-count">0</span><div class="blob">+</div></p>
+        <p>Number of words</p>
+      </div>
+    </section>
     <search>
       <label for="search">
         <legend>Search in the dictionary</legend>
@@ -102,8 +150,7 @@
     </search>
     <section>
       <h2>Categories</h2>
-      <ol>
-        <li><div class="term term-element category">HTML elements</div></li>
+      <div class="term term-element category">HTML elements</div>
     </section>
     <section>
       <h2>Words</h2>
@@ -148,6 +195,10 @@
         clearTimeout(typingTimer);
         typingTimer = setTimeout(liveSearch, typeInterval);
         });
+
+        // Update the word count in the dashboard
+        let wordCount = words.length;
+        document.getElementById("word-count").innerText = wordCount;
     </script>
   </body>
 </html>
