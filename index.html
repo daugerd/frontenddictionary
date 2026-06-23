@@ -166,8 +166,8 @@
     </search>
     <section>
       <h2>Categories</h2>
-      <div class="term term-element category">HTML elements</div>
-      <div class="term term-method category">JS methods</div>
+      <div class="term term-element category" id="html-elements-category">HTML elements</div>
+      <div class="term term-method category" id="js-methods-category">JS methods</div>
     </section>
     <section>
       <h2>Words</h2>
@@ -215,10 +215,48 @@
         clearTimeout(typingTimer);
         typingTimer = setTimeout(liveSearch, typeInterval);
         });
+        
+        document.getElementById("html-elements-category").addEventListener("click", () => {
+            if (document.getElementById("html-elements-category").classList.contains("selected")) {
+              document.getElementById("html-elements-category").classList.remove("selected");
+              for (let i = 0; i < words.length; i++) {
+                words[i].classList.remove("is-hidden");
+              }
+              return;
+            }
 
-        // Update the word count in the dashboard
+            for (let i = 0; i < words.length; i++) {
+              if (words[i].querySelector(".term").classList.contains("term-element")) {
+                words[i].classList.remove("is-hidden");
+              } else {
+                words[i].classList.add("is-hidden");
+              }
+            }
+            document.getElementById("html-elements-category").classList.add("selected");
+          });
+
+          document.getElementById("js-methods-category").addEventListener("click", () => {
+            if (document.getElementById("js-methods-category").classList.contains("selected")) {
+              document.getElementById("js-methods-category").classList.remove("selected");
+              for (let i = 0; i < words.length; i++) {
+                words[i].classList.remove("is-hidden");
+              }
+              return;
+            }
+
+            for (let i = 0; i < words.length; i++) {
+              if (words[i].querySelector(".term").classList.contains("term-method")) {
+                words[i].classList.remove("is-hidden");
+              } else {
+                words[i].classList.add("is-hidden");
+              }
+            }
+            document.getElementById("js-methods-category").classList.add("selected");
+          });
+
         let wordCount = words.length;
         document.getElementById("word-count").innerText = wordCount;
+
     </script>
   </body>
 </html>
